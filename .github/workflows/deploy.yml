@@ -1,0 +1,31 @@
+name: Build and Deploy Static Website
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Install PHP
+      run: sudo apt-get update && sudo apt-get install -y php
+
+    - name: Generate Static HTML
+      run: |
+        mkdir public
+        php index.php > public/index.html
+        cp -r css js common text public/
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+        publish_branch: gh-pages
