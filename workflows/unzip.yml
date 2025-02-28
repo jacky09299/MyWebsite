@@ -16,7 +16,7 @@ jobs:
     - name: 解壓縮 ZIP
       run: |
         mkdir extracted # 建立資料夾
-        unzip your-archive.zip -d extracted # 解壓縮
+        unzip website.zip -d extracted # 解壓縮
       shell: bash
 
     - name: 列出解壓縮結果
