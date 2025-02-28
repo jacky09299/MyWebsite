@@ -1,0 +1,54 @@
+/* 導覽列樣式 */
+.navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-around; /* 平均分布每個項目 */
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    z-index: 1000;  /* 確保它在頁面內容的上方 */
+    box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.2);
+    margin-left: -5vw;
+    width: calc(100% + 10vw);
+}
+.navbar a, .dropdown {
+    color: white;
+    text-align: center; /* 文字置中 */
+    padding: 10px 20px; /* 預設為等寬的連結 */
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: #555;
+}
+/* 下拉選單 */
+.dropdown {
+    position: relative;
+}
+.dropdown a {
+    display: inline-block;
+    text-align: center;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #555;
+    min-width: 150px;
+    z-index: 1;
+    top: 100%; /* 使下拉選單顯示在父元素下方 */
+    left: 0; /* 讓下拉選單正下方對齊 */
+    box-sizing: border-box;
+}
+.dropdown-content a {
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #777;
+}
+/* 顯示下拉選單 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}

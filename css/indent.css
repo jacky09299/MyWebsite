@@ -1,0 +1,16 @@
+/* 新增到 css/styles.css */
+.pre-wrap {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.numbered-line {
+  display: block;
+  text-indent: -2em;
+  padding-left: 2em;
+}
+
+.normal-line {
+  display: block;
+}

@@ -1,0 +1,80 @@
+/* Weather effect container */
+.snowflake-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Common styles for the weather effect */
+.weather-effect {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  animation: fall linear;
+}
+
+/* 星星的斜落動畫 */
+@keyframes star-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) translateX(-100vw); /* 星星斜向下落 */
+  }
+}
+
+/* 雲朵的飄動動畫 */
+@keyframes cloud-fall {
+  0% {
+    opacity: 1;
+    transform: translateX(100vw);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100vw); /* 雲朵從右到左飄動 */
+  }
+}
+
+/* 太陽的升降動畫 */
+@keyframes sun-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-50vh) translateX(-50vw); /* 太陽右升西落 */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0) translateX(-100vw); /* 太陽右升西落 */
+  }
+}
+
+/* 星星效果 */
+.weather-effect.star {
+  color: white;
+  font-size: 2rem;
+  animation: star-fall 10s;
+}
+
+/* 雲朵效果 */
+.weather-effect.cloud {
+  color: lightgray;
+  font-size: 3rem;
+  animation: cloud-fall 20s;
+}
+
+/* 太陽效果 */
+.weather-effect.sun {
+  color: yellow;
+  font-size: 4rem;
+  animation: sun-fall 15s;
+}
