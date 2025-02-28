@@ -5,17 +5,25 @@ on:
 
 jobs:
   unzip:
-    runs-on: ubuntu-latest # 執行環境 (Linux)
-    
+    runs-on: ubuntu-latest
+
     steps:
     - name: 檢查程式碼
       uses: actions/checkout@v4
 
     - name: 解壓縮 ZIP
       run: |
-        mkdir extracted # 建立資料夾
-        unzip website.zip -d extracted # 解壓縮
+        mkdir extracted
+        unzip website.zip -d extracted
       shell: bash
 
     - name: 列出解壓縮結果
-      run: ls extracted
+      run: ls -R extracted
+
+    - name: 提交更改
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add extracted
+        git commit -m "Unzip files"
+        git push
