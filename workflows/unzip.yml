@@ -1,0 +1,23 @@
+name: Unzip File
+
+on:
+  workflow_dispatch: # 手動觸發
+  schedule:
+    - cron: '0 0 * * *' # 每天 00:00 自動觸發 (UTC 時間)
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest # 執行環境 (Linux)
+    
+    steps:
+    - name: 檢查程式碼
+      uses: actions/checkout@v4
+
+    - name: 解壓縮 ZIP
+      run: |
+        mkdir extracted # 建立資料夾
+        unzip your-archive.zip -d extracted # 解壓縮
+      shell: bash
+
+    - name: 列出解壓縮結果
+      run: ls extracted
