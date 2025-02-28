@@ -13,17 +13,18 @@ jobs:
 
     - name: 解壓縮 ZIP
       run: |
-        mkdir extracted
-        unzip website.zip -d extracted
+        unzip website.zip -d temp
+        mv temp/website/* .
+        rm -rf temp
       shell: bash
 
     - name: 列出解壓縮結果
-      run: ls -R extracted
+      run: ls -R
 
     - name: 提交更改
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add extracted
+        git add .
         git commit -m "Unzip files"
         git push
