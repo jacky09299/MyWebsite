@@ -1,4 +1,0 @@
-[17-Nov-2024 10:15:09 America/Boise] PHP Warning:  file_get_contents(https://translation.googleapis.com/language/translate/v2): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
- in /home2/hgpqtbmy/public_html/website_b40a0606/pages/AI/translate.php on line 147
-[17-Nov-2024 10:15:28 America/Boise] PHP Warning:  file_get_contents(https://translation.googleapis.com/language/translate/v2): Failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
- in /home2/hgpqtbmy/public_html/website_b40a0606/pages/AI/translate.php on line 147
